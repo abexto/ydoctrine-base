@@ -1,0 +1,29 @@
+{
+  "name": "abexto/yii2-ydoctrine-base",
+  "description": "yDoctrine Base Classes",
+  "keywords": ["yii", "doctrine"],
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Andreas Prucha, Abexto - Helicon Software Development",
+      "email": "prucha@helicon.co.at"
+    }
+  ],
+  "require": {
+    "doctrine/orm": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "abexto\\ydc\\base\\": "lib/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "abexto\\tests\\ydc\\base\\": "tests/"
+    }
+  }
+  
+}
