@@ -27,10 +27,14 @@ class YiiCache extends \Doctrine\Common\Cache\CacheProvider
     protected function getYiiCacheComponent()
     {
         if ($this->cacheId === null) {
-            return \Yii::$app->getCache();
+            $result = \Yii::$app->getCache();
         } else {
-            return \Yii::$app->{$this->$cacheId};
+            $result = \Yii::$app->{$this->$cacheId};
         }
+        if ($result === null) {
+            throw new \yii\base\InvalidConfigException('Yii application cache is not configured');
+        }
+        return $result;
     }
     
     protected function doContains($id)
@@ -51,11 +55,6 @@ class YiiCache extends \Doctrine\Common\Cache\CacheProvider
     protected function doFlush()
     {
         return $this->getYiiCacheComponent()->flush();
-    }
-
-    protected function doGetStats()
-    {
-        return null;
     }
 
     protected function doSave($id, $data, $lifeTime = 0)
