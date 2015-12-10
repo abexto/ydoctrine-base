@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+Copyright 2015 Andreas Prucha, Abexto - Helicon Software Development.
+-->
+
+<!-- see http://www.phpunit.de/wiki/Documentation -->
+<phpunit bootstrap="./bootstrap.php"
+         colors="false"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         stopOnFailure="true">
+         
+  <testsuites>
+    <testsuite name="AllTests">
+      <directory>./unit</directory>
+    </testsuite>
+  </testsuites>
+         
+</phpunit>
+
+

@@ -14,6 +14,7 @@
   },
   "require-dev": {
     "phpunit/phpunit": "*"
+    "abexto/yepa-phpunit"
   },
   "autoload": {
     "psr-4": {
