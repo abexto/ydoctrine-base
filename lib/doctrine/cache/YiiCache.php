@@ -23,6 +23,7 @@ class YiiCache extends \Doctrine\Common\Cache\CacheProvider
     /**
      * 
      * @return \yii\caching\Cache
+     * @throws \yii\base\InvalidConfigException if Yii Cache is not configured
      */
     protected function getYiiCacheComponent()
     {
@@ -32,7 +33,7 @@ class YiiCache extends \Doctrine\Common\Cache\CacheProvider
             $result = \Yii::$app->{$this->$cacheId};
         }
         if ($result === null) {
-            throw new \yii\base\InvalidConfigException('Yii application cache is not configured');
+            throw new \yii\base\InvalidConfigException('Yii application cache component is not configured');
         }
         return $result;
     }

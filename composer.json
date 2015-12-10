@@ -9,12 +9,18 @@
       "email": "prucha@helicon.co.at"
     }
   ],
+  "repositories": [
+    {
+            "type": "vcs",
+            "url":  "https://github.com/abexto/yii2-yepa-phpunit.git"
+    }
+  ],
   "require": {
-    "doctrine/orm": "*"
+    "doctrine/orm": "*",
+    "yiisoft/yii2": "*"
   },
   "require-dev": {
-    "phpunit/phpunit": "*"
-    "abexto/yepa-phpunit"
+    "abexto/yii2-yepa-phpunit": "*@dev"
   },
   "autoload": {
     "psr-4": {
@@ -23,7 +29,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "abexto\\tests\\ydc\\base\\": "tests/"
+      "abexto\\ydc\\base\\tests\\": "tests/"
     }
   }
   
