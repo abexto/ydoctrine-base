@@ -11,8 +11,11 @@ namespace abexto\ydc\base\tests\unit\lib\doctrine\cache;
  *
  * @author Andreas Prucha, Abexto - Helicon Software Development
  */
-class YiiCacheTest extends \abexto\yepa\phpunit\TestCase
+class YiiCacheTest extends \Doctrine\Tests\Common\Cache\CacheTest
 {
+    
+    use \abexto\yepa\phpunit\MockApplicationTrait;
+    
     /**
      *
      * @var \Doctrine\Common\Cache\CacheProvider
@@ -22,18 +25,26 @@ class YiiCacheTest extends \abexto\yepa\phpunit\TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->mockApplication([
-            'components' => [
-                'cache' => [
-                    'class' => \yii\caching\ArrayCache::className()
+        if (!\Yii::$app) {
+            $this->mockWebApplication([
+                'components' => [
+                    'cache' => [
+                        'class' => \yii\caching\ArrayCache::className()
+                    ]
                 ]
-            ]
-        ]);
-        $this->doctrineCache = new \abexto\ydc\base\doctrine\cache\YiiCache();
+            ]);
+        }
     }
     
-    public function testSave()
+    public function testGetStats()
     {
-        $this->doctrineCache->save('test', 'testdata');
+        $cache = $this->_getCacheDriver();
+        $this->assertNull($cache->getStats(), 'Driver does not support getStats(), thus should return null');
     }
+
+    protected function _getCacheDriver()
+    {
+        return new \abexto\ydc\base\doctrine\cache\YiiCache();
+    }
+
 }

@@ -62,5 +62,12 @@ class YiiCache extends \Doctrine\Common\Cache\CacheProvider
     {
         return $this->getYiiCacheComponent()->set($id, $data, $lifeTime);
     }
+    
+    protected function doGetStats()
+    {
+        return null;
+    }
+    
+
 
 }

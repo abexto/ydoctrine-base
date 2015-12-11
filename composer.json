@@ -29,7 +29,8 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "abexto\\ydc\\base\\tests\\": "tests/"
+      "abexto\\ydc\\base\\tests\\": "tests/",
+      "Doctrine\\Tests\\": ["vendor/doctrine/cache/tests/Doctrine/Tests"]
     }
   }
   
