@@ -36,6 +36,7 @@ abstract class AbstractDoctrineComponent extends \yii\base\Component
 
     public static function create(AbstractDoctrineComponent $parentObject, $properties = [], $className = null)
     {
+        is_array($properties) || $properties = [];
         if (!array_key_exists('class', $properties)) {
             if (!$className) {
                 $className = static::className();
