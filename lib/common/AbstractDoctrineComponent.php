@@ -24,6 +24,11 @@ abstract class AbstractDoctrineComponent extends \yii\base\Component
      */
     public $parent = null;
     
+    /**
+     * {@inheritDoc}
+     * 
+     * @param array|true $config    Configuration. If `true`, the default configuration is used
+     */
     public function __construct($config = array())
     {
         parent::__construct($config === true ? [] : $config);
