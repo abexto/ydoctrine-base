@@ -18,11 +18,17 @@ namespace abexto\ydc\base\common;
  */
 abstract class AbstractDoctrineComponent extends \yii\base\Component
 {
+
     /**
      * @var AbstractDoctrineComponent  Parent object. Do not set this value in configuration. 
      */
     public $parent = null;
     
+    public function __construct($config = array())
+    {
+        parent::__construct($config === true ? [] : $config);
+    }    
+
     public static function create(AbstractDoctrineComponent $parentObject, $properties = [], $className = null)
     {
         if (!array_key_exists('class', $properties)) {
@@ -36,7 +42,7 @@ abstract class AbstractDoctrineComponent extends \yii\base\Component
         $properties['parent'] = $parentObject;
         return new $className($properties);
     }
-    
+
     /**
      * Returns the Root Component
      * 
@@ -51,4 +57,5 @@ abstract class AbstractDoctrineComponent extends \yii\base\Component
         }
         return NULL;
     }
-}   
+
+}
